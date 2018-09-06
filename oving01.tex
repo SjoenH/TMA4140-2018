@@ -1,5 +1,163 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+  \usepackage{mathtools}
 
-\begin{document}
-    
+\author{Henry S. Sjoen}
+\title{TMA4140: Homework Set 1}
+
+    \begin{document}
+    \maketitle
+    \tableofcontents
+\title{}
+    \section{1.1}
+    \subsection{12c}
+You miss the final examination therefore you do not pass the course.
+\subsection{12f}
+You have the flu and you miss the final examination or you don't have the flu and you pass the course.
+\subsection{14}
+p: You get an A on the final. \newline
+q: You do every exercise in this book. \newline
+r: you get an A in this class.
+
+\subsubsection{14.a}
+
+\begin{math}
+  r \wedge \neg q
+\end{math}
+
+\subsubsection{14.e}
+\begin{math}
+  (p \wedge q) \rightarrow r
+\end{math}
+\section{1.3}
+\subsection{10}
+\subsubsection{10.a}
+\begin{table}[tbh]
+  \begin{tabular}{cccccc}
+    p  & q  & $\neg p$ & $p \wedge q$  & $(\neg p \wedge (p \vee q))$ &$(\neg p \wedge (p \vee q)) \rightarrow q$  \\
+    0  & 0  & 1        & 0 & 0 &1\\
+    0  & 1  & 1        & 0 & 0 &1\\
+    1  & 0  & 0        & 0 & 0 &1\\
+    1  & 1  & 0        & 1 & 0 &1\\ 
+  \end{tabular}
+\end{table}
+Proven: It's a Tautology!
+\subsubsection{10.b}
+\begin{table}[tbh]
+  \begin{tabular}{cccccccc}
+    p  & q  & r &$p \rightarrow q$ & $q \rightarrow r$&$p \rightarrow q \wedge q \rightarrow r$&$p \rightarrow r$&$(p \rightarrow q \wedge q \rightarrow r) \rightarrow (p \rightarrow r) $\\
+    0& 0& 0& 1& 1& 1& 1& 1\\
+    1& 0& 0& 0& 1& 0& 0& 1\\
+    0& 1& 0& 1& 0& 0& 1& 1\\
+    1& 1& 0& 1& 0& 0& 0& 1\\
+    0& 0& 1& 1& 1& 1& 1& 1\\
+    1& 0& 1& 0& 1& 0& 1& 1\\
+    0& 1& 1& 1& 1& 1& 1& 1\\
+    1& 1& 1& 1& 1& 1& 1& 1
+  \end{tabular}
+\end{table}
+
+Proven: It's a Tautology!
+
+\subsubsection{10.c}
+
+\begin{math}
+  [p \wedge (p\rightarrow q)] \rightarrow q
+\end{math}
+
+\begin{table}[tbh]
+  \begin{tabular}{ccccc}
+    p & q& $p\rightarrow q$&$p\wedge(p\rightarrow q)$&$[p\wedge(p\rightarrow q)]\rightarrow q$\\
+    0& 0& 1& 0& 1\\
+    0& 1& 1& 0& 1\\
+    1& 0& 0& 0& 1\\
+    1& 1& 1& 1& 1
+  \end{tabular}
+\end{table}
+
+Proven: It's a Tautology!
+
+\subsubsection{10.d}
+\begin{table}[p]
+  \begin{tabular}{cccccccc}
+    p& q& r& $p\vee q$& $p\rightarrow r$& $q\rightarrow r$& $(p\vee q) \wedge (p\rightarrow r) \wedge (q\rightarrow r)$&$[(p\vee q) \wedge (p\rightarrow r) \wedge (q\rightarrow r)] \rightarrow r $ \\
+    0& 0& 0& 0& 1& 1 &0 &1 \\
+    0& 0& 1& 0& 1& 1 &0 &1 \\
+    0& 1& 0& 1& 1& 0 &0 &1 \\
+    0& 1& 1& 1& 1& 1 &1 &1 \\
+    0& 0& 0& 0& 1& 1 &0 &1 \\
+    0& 0& 1& 0& 1& 1 &0 &1 \\
+    1& 1& 0& 1& 0& 0 &0 &1 \\
+    1& 1& 1& 1& 1& 1 &1 &1 \\
+    1& 0& 0& 1& 0& 1 &0 &1 \\
+    1& 0& 1& 1& 1& 1 &1 &1 \\
+    1& 1& 0& 1& 0& 0 &0 &1 \\
+    1& 1& 1& 1& 1& 1 &1 &1
+  \end{tabular}
+  \caption{Table for Exercise 10d}
+  \label{table:10d}
+\end{table}
+
+Proven: It's a Tautology! See table \ref{table:10d} on page \pageref{table:10d}.
+
+\section{1.4}
+\subsection{24d}
+All students in your class can solve quadratic equations.
+
+1. Domain: People in my class.
+
+\begin{math}
+  \forall{x} Q(x)
+\end{math}
+
+2. Domain: All People
+
+$P(x)$: $x$ in my class
+$Q(x)$: $x$ can solve quadratic equations
+
+\begin{math}
+  \forall{x}(P(x)\rightarrow Q(x))
+\end{math}
+
+\subsection{24e}
+$R(x)$: $x$ want to be rich.
+
+1. Domain: People in my class.
+
+$\exists{x} \neg R(x)$
+
+2. Domain: All People
+
+$\exists{x} (P(x) \wedge \neg R(x))$
+
+\section{1.5}
+\subsection{12b}
+Rachel has not chatted with Chelsea.
+
+Can be expressed as
+\begin{math}
+  \neg C(Rachel,Chelsea)
+\end{math}
+
+Where C(x,y) is the relation, \emph{x have chatted with y}.
+
+\subsection{12e}
+
+\begin{math}
+  \forall{y} C(Sanjay, y) \wedge \neg C(Sanjay,Joseph)
+\end{math}
+
+\subsection{30c}
+
+\begin{math}
+  \neg \exists{y}(Q(y)) \wedge \neg \exists{y} (\forall{x}\neg R(x,y)) \newline
+  \forall{y}[\neg Q(y) \wedge \neg \forall{x} \neg R(x,y)]\newline
+  \forall{y}[\neg Q(y) \wedge \exists{x} R(x,y)]
+\end{math}
+
+\subsection{30e}
+\begin{math}
+  \neg \exists{y}[\forall{x}\exists{z}T(x,y,z)\vee \exists{x}\forall{z}U(x,y,z)] \newline
+  \forall{y} [\neg\forall{x}\exists{z}T(x,y,z)\wedge \neg \exists{x}\forall{z}U(x,y,z)] \newline
+  \forall{y}(\exists{x}\forall{z} \neg T(x,y,z) \wedge \forall{x}\exists{z}\neg U(x,y,z)
+\end{math}
 \end{document}
