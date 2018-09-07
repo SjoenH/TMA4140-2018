@@ -8,29 +8,35 @@
     \maketitle
     \tableofcontents
 \title{}
-    \section{1.1}
+    \section{1.1 Propositional Logic}
+    Let $p$,$q$ and $r$ be the propositions:\newline
+    $p$: You have the flu.\newline
+    $q$: You miss the final examination.\newline
+    $r$: You pass the course.
     \subsection{12c}
-You miss the final examination therefore you do not pass the course.
+    \emph{Proposition:} $q\rightarrow \neg r$ \newline
+    \emph{English sentence:} You miss the final examination therefore you do not pass the course.
 \subsection{12f}
-You have the flu and you miss the final examination or you don't have the flu and you pass the course.
+\emph{Proposition:} $ (p \wedge q) \vee (\neg q \wedge r) $ \newline
+\emph{English sentence:} You have the flu and you miss the final examination or you don't have the flu and you pass the course.
 \subsection{14}
 p: You get an A on the final. \newline
 q: You do every exercise in this book. \newline
 r: you get an A in this class.
 
 \subsubsection{14.a}
-
-\begin{math}
-  r \wedge \neg q
-\end{math}
+\emph{English sentence:} You get en A in this class, but you do not do every exercise in this book.\newline
+\emph{Proposition:} $r \wedge \neg q$
 
 \subsubsection{14.e}
-\begin{math}
-  (p \wedge q) \rightarrow r
-\end{math}
-\section{1.3}
+\emph{English sentence:} Getting an A on the final and doing every exercise in this book is sufficient for getting an A in this class.\newline
+\emph{Proposition:} $(p \wedge q) \rightarrow r$
+
+  \section{1.3 Propositional Equivalences}
 \subsection{10}
+Show that each of these conditional statements is a taultology by using thruth tables.
 \subsubsection{10.a}
+Conditional statement: $[\neg p \wedge (p \vee q)] \rightarrow q$\newline
 \begin{table}[tbh]
   \begin{tabular}{cccccc}
     p  & q  & $\neg p$ & $p \wedge q$  & $(\neg p \wedge (p \vee q))$ &$(\neg p \wedge (p \vee q)) \rightarrow q$  \\
@@ -42,6 +48,8 @@ r: you get an A in this class.
 \end{table}
 Proven: It's a Tautology!
 \subsubsection{10.b}
+Conditional statement: 
+
 \begin{table}[tbh]
   \begin{tabular}{cccccccc}
     p  & q  & r &$p \rightarrow q$ & $q \rightarrow r$&$p \rightarrow q \wedge q \rightarrow r$&$p \rightarrow r$&$(p \rightarrow q \wedge q \rightarrow r) \rightarrow (p \rightarrow r) $\\
@@ -59,10 +67,7 @@ Proven: It's a Tautology!
 Proven: It's a Tautology!
 
 \subsubsection{10.c}
-
-\begin{math}
-  [p \wedge (p\rightarrow q)] \rightarrow q
-\end{math}
+Conditional statement: $[p \wedge (p\rightarrow q)] \rightarrow q$
 
 \begin{table}[tbh]
   \begin{tabular}{ccccc}
@@ -77,6 +82,8 @@ Proven: It's a Tautology!
 Proven: It's a Tautology!
 
 \subsubsection{10.d}
+Conditional statement: $[(p\vee q) \wedge (p\rightarrow r) \wedge (q\rightarrow r)] \rightarrow r$
+
 \begin{table}[p]
   \begin{tabular}{cccccccc}
     p& q& r& $p\vee q$& $p\rightarrow r$& $q\rightarrow r$& $(p\vee q) \wedge (p\rightarrow r) \wedge (q\rightarrow r)$&$[(p\vee q) \wedge (p\rightarrow r) \wedge (q\rightarrow r)] \rightarrow r $ \\
@@ -99,7 +106,9 @@ Proven: It's a Tautology!
 
 Proven: It's a Tautology! See table \ref{table:10d} on page \pageref{table:10d}.
 
-\section{1.4}
+\section{1.4 Predicates and Qupantifiers}
+\subsection{24}
+Translate in two ways each of these statements into logical expressions using predicates, quantifiers, and logical connectives. First, let the domain consist of the students in your class and second, let it consist of all people.
 \subsection{24d}
 All students in your class can solve quadratic equations.
 
@@ -129,9 +138,11 @@ $\exists{x} \neg R(x)$
 
 $\exists{x} (P(x) \wedge \neg R(x))$
 
-\section{1.5}
+\section{1.5 Nested Qupantifiers}
+\subsection{12}
+Let $C(x,y)$ be the statement \emph{x and y have chatted over the Internet}, where the domain for the variables $x$ and $y$ consists of all students in your class. Use quantifiers to express each of these statements.
 \subsection{12b}
-Rachel has not chatted with Chelsea.
+Rachel has not chatted over the Internet with Chelsea.
 
 Can be expressed as
 \begin{math}
@@ -141,23 +152,30 @@ Can be expressed as
 Where C(x,y) is the relation, \emph{x have chatted with y}.
 
 \subsection{12e}
+Sanjay has chatted with everyone except Joseph.
 
 \begin{math}
   \forall{y} C(Sanjay, y) \wedge \neg C(Sanjay,Joseph)
 \end{math}
 
-\subsection{30c}
+\subsection{30}
+Rewrite each of these statements so that negations appear only within predicates.
 
+\subsection{30c}
 \begin{math}
-  \neg \exists{y}(Q(y)) \wedge \neg \exists{y} (\forall{x}\neg R(x,y)) \newline
-  \forall{y}[\neg Q(y) \wedge \neg \forall{x} \neg R(x,y)]\newline
-  \forall{y}[\neg Q(y) \wedge \exists{x} R(x,y)]
+  \neg \exists{y} [Q(y) \wedge \forall{x}\neg R(x,y)] \newline
+  \forall{y}\neg [Q(y) \wedge \forall{x}\neg R(x,y)] \newline
+  \forall{y}[\neg Q(y) \vee \neg \forall{x} \neg R(x,y)]\newline
+  \forall{y}[\neg Q(y)\vee \exists{x} \neg \neg R(x,y)] \newline
+  \forall{y}[\neg Q(y)\vee \exists{x}  R(x,y)]
 \end{math}
 
 \subsection{30e}
 \begin{math}
   \neg \exists{y}[\forall{x}\exists{z}T(x,y,z)\vee \exists{x}\forall{z}U(x,y,z)] \newline
-  \forall{y} [\neg\forall{x}\exists{z}T(x,y,z)\wedge \neg \exists{x}\forall{z}U(x,y,z)] \newline
-  \forall{y}(\exists{x}\forall{z} \neg T(x,y,z) \wedge \forall{x}\exists{z}\neg U(x,y,z)
+  \forall{y}\neg [\forall{x}\exists{z}T(x,y,z)\vee \exists{x}\forall{z}U(x,y,z)] \newline
+  \forall{y}[\neg \forall{x} \exists{z}T(x,y,z)\wedge \neg \exists{x}\forall{z}U(x,y,z)] \newline
+  \forall{y}[\exists{x}\neg \exists{z} T(x,y,z) \wedge \forall{x}\neg\forall{z} U{x,y,z}] \newline
+  \forall{y}[\exists{x}\forall{z} \neg T(x,y,z) \wedge \forall{x}\exists{z}\neg U{x,y,z}]
 \end{math}
 \end{document}
