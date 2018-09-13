@@ -5,6 +5,8 @@ Feel free to steal or add your own solutions to this repo.
 Blessings,
 Henry.
 
+---
+
 | Folder | Description    | Status        | Due      |
 | ------ | -------------- | ------------- | -------- |
 | O1     | Homework set 1 | Done!         | 10. Sept |
