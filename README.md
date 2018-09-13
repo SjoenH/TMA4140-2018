@@ -5,7 +5,8 @@ Feel free to steal or add your own solutions to this repo.
 Blessings,
 Henry.
 
-| Folder |  Description   |    Status     |
-| ------ | -------------- | ------------- |
-| O1     | Homework set 1 | Done!         |
-| O2     | Homework set 2 | Working on it |
+| Folder | Description    | Status        | Due      |
+| ------ | -------------- | ------------- | -------- |
+| O1     | Homework set 1 | Done!         | 10. Sept |
+| O2     | Homework set 2 | In Progress   | 17. Sept |
+| O3     | Homework set 3 | Todo          | 24 Sept  |
