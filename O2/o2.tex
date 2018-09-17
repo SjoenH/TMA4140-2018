@@ -1,5 +1,9 @@
 \documentclass[12pt]{article}
     \usepackage{mathtools}
+    \usepackage{amsfonts}
+
+    \usepackage{venndiagram}
+    \usepackage{lastpage}
     \usepackage[hidelinks]{hyperref}
     \usepackage{color}
     \definecolor{darkred}{RGB}{200, 0, 0}
@@ -9,8 +13,10 @@
     \fancyhf{}
     \fancyhead[LO]{TMA4140: Homework Set 2}
     \fancyhead[RO]{Henry S. Sjøen}
-    \fancyfoot[RO]{\thepage}
+    \fancyfoot[CO]{\thepage\ of \pageref{LastPage}}
          
+    \usepackage{fancyref}
+
   \author{Henry S. Sjøen}
   \title{%
   \textbf{TMA4140 - Homework Set 2}\\
@@ -18,7 +24,8 @@
     \color{darkred}{\textbf{RETTES}}
   }
     \begin{document}
-    \maketitle \thispagestyle{empty}
+    \maketitle 
+    \thispagestyle{empty}
     % \pagebreak
     \tableofcontents
       
@@ -30,74 +37,193 @@
         b) $\{\{1\}\},\{1,\{1\}\} \Rightarrow False.$\\
         c) $\emptyset,\{\emptyset\} \Rightarrow False$
    
-    \subsection{TODO: Exercise 24}
+    \subsection{Exercise 24}
     Determine wether each of these sets is the power set of a set, where \emph{a} and \emph{b} are distinct elements.\\
-        a) $\emptyset$\\
-        b) $\{\emptyset,\{a\}\}$\\
-        c) $\{\emptyset, \{a\},\{\emptyset,a\}\}$\\
-        d) $\{\emptyset,\{a\},\{b\},\{a,b\}\}$
+        a) $\emptyset$, is False. $P(\emptyset)=\{\emptyset\{\emptyset\}\}$\\ 
+        b) $\{\emptyset,\{a\}\}$, is True. $P(\{a\})=\{\emptyset,\{a\}\}$\\
+        c) $\{\emptyset, \{a\},\{\emptyset,a\}\}$, is False.\\
+        d) $\{\emptyset,\{a\},\{b\},\{a,b\}\}$, is True.
 
-    \pagebreak     
+        The powerset of any set $S$ is the set of all subsets of $S$, including the empty set $\emptyset$ and $S$ itself. \footnote{Wikipedia, 2018-09-14, 13:54, \url{https://en.wikipedia.org/wiki/Power_set}}
+        If $a$ and $b$ are distinct elements of a set $A$. $A=\{a,b\}$
+        Then the powerset of $A$ is $p(A)=\{\emptyset,\{a\},\{b\},\{a,b\}\}$.
+
+    \pagebreak
     \section{Chapter 2.2 - Set Operations}
-    \subsection{TODO: Exercise 18c}
+    \subsection{Exercise 18c}
     Let A, B and C be sets. Show that:
-    $A \cap B) \subseteq (A \cup B \cup C)$
-    \begin{equation}
-        \begin{split}
-            A \cap B) \subseteq (A \cup B \cup C)
-        \end{split}
-    \end{equation}
-    \subsection{TODO: Exercise 18d}
+    $(A \cap B) \subseteq (A \cup B \cup C)$
+    
+    % \begin{equation}
+    %     \begin{split}
+    %         (A \cap B) \subseteq (A \cup B \cup C)
+    %     \end{split}
+    % \end{equation}
+    
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}
+            \fillA
+            \fillB
+            \fillC
+        \end{venndiagram3sets}    
+        \caption{$(A \cup B \cup C)$}
+        \label{fig:Union}
+    \end{figure}
+    
+    As illustrated in \fref{fig:Union} we can se the venndiagram for $(A \cup B \cup C)$. Coloring out $(A \cap B)$, as shown in  \fref{fig:ACapB}, we can see that $(A \cap B)$ is a subset of $(A \cup B \cup C)$.
+    
+    \begin{figure}[h]
+        \centering
+        \caption{$A \cap B$}
+        \begin{venndiagram3sets}
+            % [labelOnlyAB=$A \cap B$]
+            \fillACapB
+        \end{venndiagram3sets}
+        \label{fig:ACapB}
+    \end{figure}
+
+        % \url{http://www3.wolframalpha.com/Calculate/MSP/MSP2891521ibi0a5gd30f95g000037hcb6a7hd034233?MSPStoreType=image/gif&s=44&w=471.&h=279.&cdf=Resizeable}
+
+    \newpage
+    \subsection{Exercise 18d}
     Let A, B and C be sets. Show that:
     $(A - B) - C \subseteq A - C$
-    \begin{equation}
-        \begin{split}
-            (A - B) - C \subseteq A - C
-        \end{split}
-    \end{equation}
-    \subsection{TODO: Exercise 46}
-    Show that if A, B, and C are sets, then:
-    \footnote{This is a special case of the inclusion-exclusion principle, which will be studied in Chapter 8.}
+
+
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}
+            \fillOnlyA
+        \end{venndiagram3sets}
+        \caption{$(A - B) - C$}
+        \label{fig:onlyA}
+    \end{figure}
+    
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}
+            \fillANotC
+        \end{venndiagram3sets}
+        \caption{$A - C$}
+        \label{fig:ANotC}
+    \end{figure}    
+
+    We can see that $(A - B)-C$ is a subset of $A-C$, see \fref{fig:onlyA} and \ref{fig:ANotC}.
+    
+    \newpage
+    \subsection{Exercise 46}
+    Show that if A, B, and C are sets, then:\footnote{This is a special case of the inclusion-exclusion principle, which will be studied in Chapter 8. Also... Wikipedia \url{https://en.wikipedia.org/wiki/Inclusion-exclusion_principle}}
+    
     \begin{equation}
         |A \cup B \cup C| = 
         |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
     \end{equation}
 
-    % Learn more: https://www.sharelatex.com/learn/Aligning_equations_with_amsmath
-    \begin{equation}
-        \begin{split}
-            |A \cup B \cup C| =& 
-              |A| + |B| + |C| - |A \cap B| 
-            - |A \cap C| - |B \cap C| + |A \cap B \cap C|       
-            \\
-            |A \cup B \cup C| =& 
-            |A \cup B \cup C|
-        \end{split}
-    \end{equation}
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}[
+            labelOnlyA=1,labelOnlyB=1,labelOnlyC=1,
+            labelOnlyAB=2,labelOnlyAC=2,labelOnlyBC=2,
+            labelABC=3]
+            \fillA
+            \fillB
+            \fillC
+        \end{venndiagram3sets}
+        \caption{$|A|+|B|+|C|$}
+        \label{fig:u1}
+    \end{figure}    
+
+    Here we have counted some elements more than once (\fref{fig:u1}), lets correct that.
+
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}[
+            labelOnlyA=1,labelOnlyB=1,labelOnlyC=1,
+            labelOnlyAB=1,labelOnlyAC=1,labelOnlyBC=1,
+            labelABC=0]
+            \fillA
+            \fillB
+            \fillC
+        \end{venndiagram3sets}
+        \caption{$|A|+|B|+|C|-(|A \cap B| - |A \cap C| - |B \cap C|)$}
+        \label{fig:u2}
+    \end{figure}    
+
+    But now, the intersection of A,B and C is not counted. (\fref{fig:u2}). Lets count the intersection once $|A\cap B \cap C|$ as shown in \fref{fig:u3}.
+
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}[
+            labelOnlyA=1,labelOnlyB=1,labelOnlyC=1,
+            labelOnlyAB=1,labelOnlyAC=1,labelOnlyBC=1,
+            labelABC=1]
+            \fillA
+            \fillB
+            \fillC
+        \end{venndiagram3sets}
+        \caption{$|A|+|B|+|C|-(|A \cap B| - |A \cap C| - |B \cap C|) + |A \cap B \cap C|$}
+        \label{fig:u3}
+    \end{figure}    
+
+    We have now shown that 
+    and we can intuitively see that it's the same as counting all elements inside the union of the three sets: $|A \cup B \cup C|$. (\fref{fig:u4})
+
+    \begin{figure}[h]
+        \centering
+        \begin{venndiagram3sets}
+            \fillA
+            \fillB
+            \fillC
+        \end{venndiagram3sets}
+        \caption{Union of the sets A,B and C}
+        \label{fig:u4}
+    \end{figure}
+
+    % TODO: Show it with more amazing math.
 
     \pagebreak     
     \section{Chapter 2.3 - Functions}
-    \subsection{TODO: Exercise 12c}
+    \subsection{Exercise 12c}
     Determine whether each of these functions from $Z$ to $Z$ is one-to-one.
-        \begin{equation}
-            f(n) = n^3
-        \end{equation}
 
-    \subsection{TODO: Exercise 38}
-    Let $f(x) = ax+b$ and $g(x)= cx+d$, where a,b,c, and d are constants. Determine necessary and sufficient conditions on the constants a,b,c, and d so that $f \cdot g = g \cdot f$. 
-    \subsection{TODO: Exercise 42}
+    \textbf{True.} $f(n) = n^3$, is One-to-One, because it passes both the vertical and horizontal line test.\footnote{\url{http://www.mathwords.com/o/one_to_one_function.htm}}
+
+    \subsection{Exercise 38}
+    % Todo: Look over later
+    Let $f(x) = ax+b$ and $g(x)= cx+d$, where a,b,c, and d are constants. Determine necessary and sufficient conditions on the constants a,b,c, and d so that 
+    $f \cdot g = g \cdot f$.
+           
+    \begin{equation}
+        \begin{split}
+            f \cdot g = g \cdot f = a(cx+d)+b=acx+ad+b\\
+            g\cdot f = g(f(x))=c(ax+b)+d=acx+cb+d\\
+            f \cdot g =  g\cdot f \Leftrightarrow ad+b = cb+d
+        \end{split}
+    \end{equation}
+
+    \subsection{Exercise 42}
+    % Todo: Look over later
     Let $f$ be the function from $R$ to $R$ defined by $f(x)=x^2$. Find:\\
-    a) $f^{-1}(\{1\})$\\
-    b) $f^{-1}(\{ x | 0 < x < 1\})$\\
-    c) $f^{-1}(\{ x | x > 4\})$
+    a) $f^{-1}(\{1\}) = \pm 1$\\
+    b) $f^{-1}(\{ x | 0 < x < 1\}) = \pm \{x|-1<x<1 \wedge x \neq 0 \}$\\
+    c) $f^{-1}(\{ x | x > 4\}) = \{x|-2>x \wedge x>2\}$
     
     \pagebreak     
     \section{Chapter 2.4 - Sequences and Summations}
-    \subsection{TODO: Exercise 12c}
+
+    \subsection{Exercise 12c}
+    % Todo: Look over later    
     Show that the sequence {$a_n$} is a solution of the recurrence relation $a_n=-3a_{n-1}+4a_{n-2}$ if $a_n = (-4)^n$
     \begin{equation}
         \begin{split}
-            a_n = -3a_{n-1}+4a_{n-2} = (-4)^n
+            a_n =& -3a_{n-1}+4a_{n-2} = (-4)^n\\
+            =&-3a_{n-1} + 4a_{n-2}\\
+            =& (-4)^{n-1}+4(-4)^{n-2}\\
+            =& (-4)^{n-2}[(-3)(-4)+4]\\
+            =& (-4)^{n-2}(16)\\
+            =& (-4)^{n-2}(-4)^2\\
+            =& (-4)^{n}
         \end{split}
     \end{equation}
 
@@ -118,8 +244,8 @@
     \emph{Exercise}: 
     Show that a subset of a countable set is also countable.\\
     \emph{Answer}:
-    A set is countable if it is finite or is the same size as $N$.
+    A set is countable if it is finite or is the same size as $\mathbb{N}$.
     To show that $A$ is countable, it is sufficient to show that there is an injection
-    from $A$ to $N$.
+    from $A$ to $\mathbb{N}$.
 
     \end{document}
