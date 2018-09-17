@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+    \usepackage{mathtools}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{color}
+    \usepackage{fancyref}
+    \usepackage{lastpage}
+    \usepackage{fancyhdr}
+    
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[LO]{TMA4140: Homework Set 3}
+    \fancyhead[RO]{Henry S. Sjøen}
+    \fancyfoot[CO]{\thepage\ of \pageref{LastPage}}
+    
+    \definecolor{darkred}{RGB}{200, 0, 0}
+
+  \author{Henry S. Sjøen}
+  \title{
+  \textbf{TMA4140 - Homework Set 3}\\
+  Basic structures: Sets, Functions, Sequences and Sums\\
+    \color{darkred}{\textbf{RETTES}}
+  }
+\begin{document}
+    \maketitle 
+    \thispagestyle{empty}
+    \tableofcontents
+      
+    \pagebreak
+    \section{Chapter 2.6 Matrices}
+    \subsection{TODO: Exercise 27c}
+    Let
+    $ A = 
+        \begin{bmatrix}
+          1 & 0 & 1 \\
+          1 & 1 & 0 \\
+          0 & 0 & 1
+        \end{bmatrix}
+    $ 
+    and
+    $  
+    B =
+        \begin{bmatrix}
+            0&1&1\\
+            1&0&1\\
+            1&0&1
+        \end{bmatrix}
+    $. Find $A \cdot B$.
+    
+    \pagebreak
+    \section{Chapter 3.1 Algorithms}
+    \subsection{TODO: Exercise 53  }
+    Use the greedy algorithm to make change using quarters, dimes, nickels, and pennies for:\\
+    a) 51 cents \\
+    b) 69 cents \\
+    c) 76 cents \\
+    d) 60 cents
+
+    \subsection{TODO: Exercise 55 }
+    Use the greedy algorithm to make change using quarters, dimes, and pennies (but no nickels) for each of the amounts given in Exercise 53. For which of these amounts does the greedy algoritm use the fewest coins of these denominations possible?\\
+    a) 51 cents \\
+    b) 69 cents \\
+    c) 76 cents \\
+    d) 60 cents
+
+    \subsection{TODO: Exercise 56}
+    Show that if there were a coin worth 12 cents, the greedy algoritm using quarters, 12-cent coins, dimes, nickels, and pennies would not always produce change using the fewest coins possible.
+
+    \pagebreak
+    \section{Chapter 3.2 The Growth of Functions}
+    \subsection{TODO: Exercise 27a, 27b}
+    Give a big-$O$ estimate for each of these functions. For the function $g$ in your estimate that $f(x)$ is $O(g(x))$, use a simple function $g$ of the smallest order.\\
+    a)$n log(n^2+1)+n^2 log n$\\
+    b)$(n log n + 1)^2+(log n+1)(n^2+1)$
+
+    \subsection{TODO: Exercise 30c, 30e}
+    Show that each of these pairs of functions are of the same order.\\
+    c)$\lfloor x + 1/2 \rfloor,x$\\
+    e)$log_{10}x,log_{2}x$
+
+    \subsection{TODO: Exercise 34}
+    Show that $3x^2+x+1$ is $\theta (3x^2)$ by directly finding the constants $k, C_1$ and $C_2$ in Exercise 33.
+
+    \textbf{Exercise 33:}
+    Show that if $f(x)$ and $g(x)$ are functions from the set of real numbers to the set of real numbers, then $f(x)$ is $\theta (g(x))$ if and only if there are positive constants $k, C_1$ and $C_2$ such that $C_1|g(x) \leq |f(x)| \leq C_2|g(x)|$ whenever $x > k$.
+
+    \begin{equation}
+        3x^2+x+1 = \theta (3x^2)
+    \end{equation}
+
+    \subsection{TODO: Exercise 42}
+    Suppose that $f(x)$ is $O(g(x))$. Does it follow that $2^{f(x)}$ is $O(2^{g(x)})$?
+    
+    \pagebreak
+    \section{Chapter 4.1 Divisibility and Modular Arithmetic}
+    \subsection{TODO: Exercise 11}
+    What time does a 12-hour clock read:\\
+    a) 80 hours after it reads 11:00?\\
+    b) 40 hours before it reads 12:00?\\
+    c) 100 hours after it reads 6:00?
+
+\end{document}
