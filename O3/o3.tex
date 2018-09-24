@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+    \usepackage{mathtools}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{color}
+    \usepackage{fancyref}
+    \usepackage{lastpage}
+    \usepackage{fancyhdr}
+
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[LO]{TMA4140: Homework Set 3}
+    \fancyhead[RO]{Henry S. Sjøen}
+    \fancyfoot[CO]{\thepage\ of \pageref{LastPage}}
+
+    \definecolor{darkred}{RGB}{200, 0, 0}
+
+  \author{Henry S. Sjøen}
+  \title{
+  \textbf{TMA4140 - Homework Set 3}\\
+  Basic structures: Sets, Functions, Sequences and Sums\\
+    \color{darkred}{\textbf{RETTES}}
+  }
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    \tableofcontents
+
+    \pagebreak
+    \section{Chapter 2.6 Matrices}
+    \subsection{Exercise 27c}
+    Let
+    $ A =
+        \begin{bmatrix}
+          1 & 0 & 1 \\
+          1 & 1 & 0 \\
+          0 & 0 & 1
+        \end{bmatrix}
+    $
+    and
+    $
+    B =
+        \begin{bmatrix}
+            0&1&1\\
+            1&0&1\\
+            1&0&1
+        \end{bmatrix}
+    $. Find $A \odot B$.
+
+
+    \begin{equation}
+        \begin{split}
+            A \odot B =&
+            \begin{bmatrix}
+                1 & 0 & 1 \\
+                1 & 1 & 0 \\
+                0 & 0 & 1
+            \end{bmatrix}
+                \odot
+            \begin{bmatrix}
+                0 & 1 & 1\\
+                1 & 0 & 1\\
+                1 & 0 & 1
+            \end{bmatrix}\\
+            =&
+            \begin{bmatrix}
+                (1\wedge 0) \vee (0\wedge1) \vee (1\wedge1) & (1\wedge1) \vee (0\wedge0) \vee (1\wedge0) & (1\wedge1) \vee (0\wedge1) \vee (1\wedge1) \\
+                (1\wedge0) \vee (1\wedge1) \vee (0\wedge1) & (1\wedge1) \vee (1\wedge0) \vee (0\wedge0) & (1\wedge1) \vee (1\wedge1) \vee (0\wedge1) \\
+                (0\wedge0) \vee (0\wedge1) \vee (1\wedge1) & (0\wedge1) \vee (0\wedge0) \vee (1\wedge0) & (0\wedge1) \vee (0\wedge1) \vee (1\wedge1)
+            \end{bmatrix}\\
+            =&
+            \begin{bmatrix}
+                0\vee0\vee1&1\vee0\vee0&1\vee0\vee1\\
+                0\vee1\vee0&1\vee0\vee0&1\vee1\vee0\\
+                0\vee0\vee1&0\vee0\vee0&0\vee0\vee1
+            \end{bmatrix}\\
+            =&
+            \begin{bmatrix}
+                1&1&1\\
+                1&1&1\\
+                1&0&1
+            \end{bmatrix}
+        \end{split}
+    \end{equation}
+
+    \pagebreak
+    \section{Chapter 3.1 Algorithms}
+    \subsection{Exercise 53}
+    Use the greedy algorithm to make change using quarters (25), dimes (10), nickels (5), and pennies (1) for\label{e:53}:\\
+    \textbf{a)} 51 cents = 2 quarters (25) + 1 penny (1) $\Rightarrow$ 3 coins\\
+    \textbf{b)} 69 cents = 2 quarters (25) + 1 dime (10) + 1 nickel (5) + 4 pennies (1) $\Rightarrow$ 8 coins\\
+    \textbf{c)} 76 cents = 3 quarters (25) + 1 penny (1) $\Rightarrow$ 4 coins\\
+    \textbf{d)} 60 cents = 2 quarters (25) + 1 dime (10) $\Rightarrow$ 3 coins
+
+    \subsection{Exercise 55 }
+    Use the greedy algorithm to make change using quarters, dimes, and pennies (but no nickels) for each of the amounts given in Exercise 53. For which of these amounts does the greedy algoritm use the fewest coins of these denominations possible?\label{e:55}\\
+    \textbf{a)} 51 cents $\Rightarrow$ 2 quarters (25) + 1 penny (1) $\Rightarrow$ 3 coins\\
+     Exercise 53 and 55 provides the same answer.\\
+    \textbf{b)} 69 cents = 2 quarters (25) + 1 dimes (10) + 9 pennies (1) $\Rightarrow$ 12 coins\\
+    Exercise 53 uses the fewest amount of coins of the two.\\
+    \textbf{c)} 76 cents = 3 quarters (25) + 1 penny (1) $\Rightarrow$ 4 coins\\
+    Exercise 53 and 55 provides the same answer.\\
+    \textbf{d)} 60 cents = 2 quarters (25) + 1 dime (10) $\Rightarrow$ 3 coins\\
+    Exercise 53 and 55 provides the same answer.
+
+    \subsection{Exercise 56}
+    Show that if there were a coin worth 12 cents, the greedy algoritm using quarters, 12-cent coins, dimes, nickels, and pennies would not always produce change using the fewest coins possible.
+
+    If we wanted change for 15 cents then the greedy algorithm would give us
+    1 (12) + 3 pennies (1) = 15 cents $\Rightarrow$ 4 coins.
+    But a more fitting change would be 1 dime + 1 nickel $\Rightarrow$ 2 coins.
+
+    % Another example
+    % 21=> 12 + 5 + 1 + 1 + 1 + 1
+    % 21=> 10 + 10 + 1
+
+    \pagebreak
+    \section{Chapter 3.2 The Growth of Functions}
+    \subsection{Exercise 27a, 27b}
+    Give a big-$O$ estimate for each of these functions. For the function $g$ in your estimate that $f(x)$ is $O(g(x))$, use a simple function $g$ of the smallest order.\\
+    a)$n log(n^2+1)+n^2 log n = O(n^2logn)$\\
+    b)$(n log n + 1)^2+(log n+1)(n^2+1)=O(n^2(logn)^2)$
+
+    \subsection{Exercise 30c, 30e}
+    Show that each of these pairs of functions are of the same order.\\
+    c)$\lfloor x + 1/2 \rfloor,x$\\
+    Let $f(x) = \lfloor x + 1/2 \rfloor$ and $g(x)=x$.
+    $x<2 \lfloor x+1/2\rfloor$ and for $x>2$: $| \lfloor x +1/2 \rfloor | > \frac{1}{2}\cdot|x|$\\
+    That means $\lfloor x+1/2 \rfloor$ is $\Omega(x)$.\\
+    $\lfloor x + 1/2 \rfloor <2x for x>2$ it follows that $|\lfloor x+1/2 \rfloor| <2 cdot |x|$\\
+    Thus, $\lfloor x+1/2 \rfloor$ is $O(x)$.\\
+    And we conclude that $\lfloor x+1/2 \rfloor$ and $x$ are of the same order.\\
+    e)$log_{10}x,log_{2}x$\\
+    Let $f(x)=log_{10}x$ and $g(x)=log_2x$.
+    \begin{equation}
+        \begin{split}
+            f(x)&=log_{10}x\\
+                &=\frac{log x}{log 10}\\
+                &=\frac{log 2}{log 2}\frac{log x }{log 10}\\
+                &=\frac{log 2}{log 10}\frac{log x}{log 2}\\
+                &=\frac{1}{log_{2}10}log_{2}x
+        \end{split}
+    \end{equation}
+    Thus $|log_{10}x| \leq \frac{1}{log_{2}10}x|$ and it follows that $log_{10}x$ is $O(log_2 x)$
+
+    \subsection{Exercise 34}
+    Show that $3x^2+x+1$ is $\theta (3x^2)$ by directly finding the constants $k, C_1$ and $C_2$ in Exercise 33.
+
+    \textbf{Exercise 33:}
+    Show that if $f(x)$ and $g(x)$ are functions from the set of real numbers to the set of real numbers, then $f(x)$ is $\theta (g(x))$ if and only if there are positive constants $k, C_1$ and $C_2$ such that $C_1|g(x) \leq |f(x)| \leq C_2|g(x)|$ whenever $x > k$.
+
+    \begin{equation}
+        3x^2+x+1 = \theta (3x^2)
+    \end{equation}
+
+    \subsection{Exercise 42}
+    Suppose that $f(x)$ is $O(g(x))$. Does it follow that $2^{f(x)}$ is $O(2^{g(x)})$?\\
+    No it does not. For example $f(x)=2x$ and $g(x)=x$.
+    Then $f(x)$ is $O(g(x))$. But $2f(x)$ is not $O(2^{g(x)})$.
+
+    \pagebreak
+    \section{Chapter 4.1 Divisibility and Modular Arithmetic}
+    \subsection{Exercise 11}
+    \textbf{What time does a 12-hour clock read:}\\
+    \textbf{a)} 80 hours after it reads 11:00?\\
+    \emph{Answer:} 7:00\\
+    \textbf{b)} 40 hours before it reads 12:00?\\
+    \emph{Answer:} 8:00\\
+    \textbf{c)} 100 hours after it reads 6:00?\\
+    \emph{Answer:} 10:00
+\end{document}
