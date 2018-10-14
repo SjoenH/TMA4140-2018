@@ -1,0 +1,299 @@
+\documentclass[12pt]{article}
+    \usepackage{mathtools}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{color}
+    \usepackage{fancyref}
+    \usepackage{lastpage}
+    \usepackage{fancyhdr}
+    
+    \usepackage{pagecolor}
+    % \pagecolor{black}
+    % \color{white}
+
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[LO]{TMA4140: Homework set 6}
+    \fancyhead[RO]{Henry S. Sjøen \& Toralf Tokheim}
+    \fancyfoot[CO]{\thepage\ of \pageref{LastPage}}
+
+    \definecolor{darkred}{RGB}{200, 0, 0}
+
+  \author{Henry S. Sjøen \& Toralf Tokheim}
+  \title{
+  \textbf{TMA4140 - Homework Exercise Set 6}}
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+
+
+    \section{Chapter 6.3} 
+    \subsection{Exercise 13}
+    A group contains $n$ men and $n$ women. How many ways are there to arrange these people in a row if the men and women alternate?
+    % TODO fill in some info?
+    Total number of people in the group is $n$-men and $n$-women therefore $2n$ in total.
+    For men we have: $n! \times n!=(n!)^2$ and it's the same for women.
+    Therefore when combined we get the total number of arrangements, which are $(n!)^2+(n!)^2=2(n!)^2$ if the row alternates between men and women.
+
+    \subsection{Exercise 34}
+    Suppose that a department contains 10 men and 15 women. How many ways are there to form a committee with six members if it must have more women than men?
+
+    3 possible type of ways to form a committee:\\
+    Possibility number 1: 6 women and 0 men gives us $5005$ ways. 
+    \begin{equation}
+        C(15,6)\times C(10,0)=5005
+    \end{equation}
+    Possibility number 2: 5 women and 1 man gives us $30030$ ways.
+    \begin{equation}
+        C(15,5)\times C(10,1)=30030
+    \end{equation}
+    Possibility number 3: 4 women and 2 men gives us $61425$ ways.
+    \begin{equation}
+        C(15,4)\times C(10,2)=61425
+    \end{equation}
+
+    So to combine all the possible ways to form a committee we get:
+\begin{equation}
+    \begin{split}
+        C(15,6)\times C(10,0)\times C(15,5)\times C(10,1)\times C(15,4)\times C(10,2)\\
+        =5005+30030+61425=96460
+    \end{split}
+\end{equation}
+
+    \section{Chapter 6.4} 
+    \subsection{Exercise 4}
+    Find the coefficient of $x^5y^8$ in $(x+y)^{13}$.
+
+    \begin{figure}
+        \begin{equation}
+            \begin{split}
+                (x+y)^n =&\sum_{j=0}^{n}\binom{n}{j} x^{n-j}y^j\\=& \binom{n}{0}x^n+\binom{n}{1}x^{n-1}y+...+\binom{n}{n-1}xy^{n-1}+\binom{n}{n}y^n
+            \end{split}
+        \end{equation}
+    \end{figure}
+    
+    
+    From the binomial theorem it follows that this coefficient is
+    \begin{equation}
+        \begin{split}
+            \binom{13}{8}= 
+            \frac{13!}{8!(13-8)!}=
+            \frac{13!}{8!5!}=
+            1 287
+        \end{split}
+    \end{equation}
+
+    \subsection{Exercise 9} 
+    What is the coefficient of $x^{101}y^{99}$ in the expansion of $(2x-3y)^{200}$?
+    
+    \begin{equation}
+        \begin{split}
+            \binom{200}{99}*2^{101}*(-3)^{99}=& -(2^{101}*3^{99}*\binom{200}{99}) \\
+            =& - (2^{101}*2^{99}\frac{200!}{99!(200-99)!}) \\
+            =& - (2^{101}*2^{99}\frac{200!}{99!101!}) 
+        \end{split}
+    \end{equation}
+
+
+    \subsection{Exercise 12}
+    The row of Pascal's triangle containing the binomial coefficients ${10 \choose k}, 0 \leq k \leq 10,$ is: $1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1$.
+
+    Use Pascal's identity to produce the row immediately following this row in Pascal's triangle.
+    \begin{equation}
+        \begin{split}
+            \binom{n+1}{k}=\binom{n}{k-1}+\binom{n}{k}
+        \end{split}
+    \end{equation}
+    Setting $=10$ and $k=1$.
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{1}&=\binom{10}{1-1}+\binom{10}{1}\\
+            \frac{11!}{1!(10)!}&=\frac{10!}{0!(10)!}+\frac{10!}{1!(9)!}\\
+            11 &= 1+10\\
+            11 &= 11
+        \end{split}
+    \end{equation}
+    Pascal's identity is verified.\\
+    Using the binomial coefficients $\binom{n+1}{k}$  to find the immediate following row in Pascal's triangle.
+    
+   Substituting $n=10$ and $k = 0$ in $\binom{n+1}{k}$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{0}=\binom{11}{0}=1
+        \end{split}
+    \end{equation}
+   
+
+    Substituting $n=10$ and $k = 1$ in $\binom{n+1}{k}$ to find the immediately following number in the row... and so on.
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{1}=\binom{11}{1}=11
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 2$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{2}=\binom{11}{2}=55
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 3$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{3}=\binom{11}{3}=165
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 4$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{4}=\binom{11}{4}=330
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 5$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{5}=\binom{11}{5}=462
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 6$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{6}=\binom{11}{6}=462
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 7$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{7}=\binom{11}{7}=330
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 8$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{8}=\binom{11}{8}=165
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 9$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{9}=\binom{11}{9}=55
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 10$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{10}=\binom{11}{10}=11
+        \end{split}
+    \end{equation}
+
+
+    Substituting $n=10$ and $k = 11$ 
+    \begin{equation}
+        \begin{split}
+            \binom{10+1}{11}=\binom{11}{11}=1
+        \end{split}
+    \end{equation}
+    
+    Which gives us the row 
+    \begin{equation}
+        \begin{split}
+            [\binom{11}{0},\binom{11}{1},\binom{11}{2},\binom{11}{3},\binom{11}{4},\binom{11}{5},\binom{11}{6},\binom{11}{7},\binom{11}{8},\binom{11}{9},\binom{11}{10},\binom{11}{11}]\\
+            =[1, 11, 55, 165, 330, 462, 462, 330, 165, 55, 11, 1]   
+        \end{split}
+    \end{equation}
+    
+    \section{Chapter 6.5} 
+    \subsection{Exercise 6}
+    How many ways are there to select five unordered elements from a set with three elements when repetition is allowed?
+
+    There are $C(n+r-1,r)=C(n+r-1,n-1)r$-combinations from a set with $n$ elements when repetition is allowed.
+    Setting $n=3$ and $r=5$.
+    \begin{equation}
+            C(3+5-1,5) = C(7,5) 
+    \end{equation}
+
+    Since $C(n,r)=C(n,n-r)$, we get...
+    \begin{equation}
+    C(7,2) = \frac{7\times 6}{2} =\frac{42}{2} = 21
+  \end{equation} 
+
+    There are therefore 21 different ways to select 5 unordered elements from a set of 3 elements when repetition is allowed.
+    % ${n \choose k} = {3 \choose 5}$?
+
+    \subsection{Exercise 14} 
+    How many solutions are there to the equation $x_1 + x_2 + x_3 + x_4 = 17$, where $x_1,x_2,x_3$, and $x_4$ are nonnegative integers?
+
+    There are $C(n+r-1,r)=C(n+r-1,n-1)r$-combinations from a set with $n$ elements when repetition is allowed.
+
+    Select 17 items from a set with four elements...
+    Set $n = 4$ and $r=17$.
+    \begin{equation}
+        \begin{split}
+            C(4+17-1,17)&=C(4+17-1,3)\\
+            &=C(20,3)\\
+            &=1140
+        \end{split}
+    \end{equation}
+
+    There are $1140$ Solutions.
+
+    \subsection{TODO: Exercise 30} 
+    How many different strings can be made from the letters in \textit{MISSISSIPPI}, using all the letters?
+
+    There are 11 number of letters, so... $n=11$. 
+    There are 4 unique letters, therefore...$k=4$.
+
+    \begin{equation}
+        \begin{split}
+            \frac{n!}{n_1!n_2!...n_k!}=\frac{11!}{1!4!4!2!}=34650
+        \end{split}
+    \end{equation}
+
+    We can form $34650$ different strings from the letters.
+
+    \subsection{TODO: Exercise 54}
+    How many ways are there to distribute five indistinguishable objects into three indistinguishable boxes?
+
+    Assuming we can have empty boxes, Then we can have the following distinct arrangements:
+    \begin{equation}
+        \begin{split}
+            [0][0][5]\\
+            [0][1][4]\\
+            [0][2][3]\\
+            [1][1][3]\\
+            [1][2][2]
+        \end{split}
+    \end{equation}
+
+    So there are 5 distinct orderings / total number of partitions.
+
+    \section{Chapter 6.6} 
+    \subsection{TODO: Exercise 5a}
+    Find the next larger permutation in lexicographic order after the permutation of $1432$.
+    Next order is $2134$.
+
+
+    \subsection{TODO: Exercise 5c}
+    Find the next larger permutation in lexicographic order after the permutation of $12453$.
+    Next order is $12534$.
+
+\end{document}
