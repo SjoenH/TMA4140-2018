@@ -155,7 +155,7 @@
     Solve these recurrence relations together with the initial conditions given.\\
     \textbf{c)} $ a_n=5a_{n-1} - 6a_{n-2} $ for $ n \geq 2, a_0=1, a_1=0 $\\
     Comparing the given recurrence with the general relation we get $C_1=5,c_2=-6$ and rest of the coefficients are $0$.
-    ~Our characteristic equation will be $r^2=5r^1-6r^0$, so...
+    Our characteristic equation will be $r^2=5r^1-6r^0$, so...
     \begin{equation}
         \begin{split}
             r^2-5r^1+6r^0=0\\
@@ -200,6 +200,16 @@
     Put the value of $a_1,a_2$ in the equation $a_n=a_1r_1^n+a_2r_2^n$ to get the final solution $a_n=3 \times (2)^n-2 \times (3)^n$.
 
     \textbf{d)} $ a_n=4a_{n-1} - 4a_{n-2} $ for $ n \geq 2, a_0=6, a_1=8 $\\
+    Comparing the given recurrence relation with the general relation we get $c_1=4$ $c_2=-4$ and the rest of the coefficients are 0.
+    The corresponding characteristic equation will be $r^2=4r^1-4r^0$. So,
+    \begin{equation}
+        \begin{split}
+            r^2-4r+4=0\\
+            r^2-2r-2r+4=0\\
+            (r-2)(r-2)=0
+        \end{split}
+    \end{equation}
+    Since we have a repeated root, the solution will be of the form $a_n=a_1r_1^n+a_2nr_2^n$
     \textbf{e)} $ a_n=-4a_{n-1} - 4a_{n-2} $ for $ n \geq 2, a_0=0, a_1=1 $\\
     \textbf{g)} $ a_n=\frac{a_{n-2}}{4} $ for $ n \geq 2, a_0=1, a_1=0 $
     \subsection{Todo: Exercise 6}
@@ -234,12 +244,89 @@
     \textbf{d) What do you need to prove in the inductive step?}\\
    \textbf{ e) Complete the inductive step, identifying where you use the inductive hypothesis.}\\
     \textbf{f) Explain why these steps show that this formula is $true$ whenever $n$ is a positive integer.}
+    % 
+    % \begin{enumerate}[label=\alph*)]
+        %?ER DETTE BARE OPPGAVE F? beklager for skriking... Om du laster opp ny PDF, så kan jeg skjekke.. Litt stress å bare se med utgangspunkt i latex
+        $P(1): 1^3 = (\frac{1(1+1)}{2})^2$
+        Basis step:
+            $P(1): 1^3 = (\frac{1(1+1)}{2})^2 = 1$ \\
+            $P(1)$ is true, which completes the basis step of a proof by
+                induction for $P(k)$
+    
+        The inductive hypothesis consists of two parts: \\
+            - $P(b)$ holds true \\
+            - $P(k) \rightarrow P(k+1)$ holds true\\
+            Then $P(k), \quad \forall k > b$
+    
+            In other words, if $P$ is true for the first step, and $P$ holds true for an arbitrary step implies $P$ holds true for the next step, then $P$ holds true for all steps. \\
+    
+        You need to prove the first step $P(b)$, and then you need to prove
+            $P(k) \rightarrow P(k+1)$
+    
+                    \begin{align}
+                        \intertext{Basis step:}
+                        1^3 = (1(1+1)/2)^2 = 1 \\
+                        \intertext{LHS = RHS}
+                        \intertext{Inductive step:}
+                        \sum_{n=1}^k{n^3} = \Big(\frac{k(k+1)}{2}\Big)^2 \\ %\label{eq:4e_k}
+                        \intertext{We assume $P(k)$ is true for an arbitrary integer $k$. We can replace $k$ with $k+1$. Out goal is to show that if $P(k)$ holds then $P(k+1)$ must hold}
+                        \sum_{n=1}^{k+1}{n^3} = \Big(\frac{(k+1)((k+1)+1)}{2}\Big)^2 \\
+                        \sum_{n=1}^{k}{n^3} + (k+1)^3 = \Big(\frac{(k+1)(k+2)}{2}\Big)^2 \\
+                        = \Big(\frac{(k^2+3k+2)}{2}\Big)^2 \\
+                        = \Big(\frac{(k(k+1))}{2} + (k+1)\Big)^2 \\
+                        \sum_{n=1}^{k}{n^3} + (k+1)^3 = \Big(\frac{(k(k+1))}{2}\Big)^2 + k(k+1)(k+1) + (k+1)^2 \\
+                        \intertext{We subtract  $\sum_{n=1}^k{n^3} = \Big(\frac{k(k+1)}{2}\Big)^2$ from the equation and have}
+                        (k+1)^3 = k(k+1)^2 + (k+1)^2 \\
+                        (k+1)^3 = (k+1)(k+1)^2 = (k+1)^3 \\
+                        \intertext{LHS = RHS. This means that if $P(k)$ holds true,
+                        then $P(k+1)$ must also be true, which by the inductive
+                        hypothesis means that $\forall k \geq 1, \quad P(k)$ holds true}
+                    \end{align}
 
-    \subsection{Todo: Exercise 6}
+    \subsection{Exercise 6}
     % https://www.chegg.com/homework-help/bus-driver-pays-tolls-using-nickels-dimes-throwing-one-coin-chapter-5.1-problem-6E-solution-9780073383095-exc
     Prove that $s1 \cdot 1!+2 \cdot 2! + \cdots + n \cdot n! = (n+1)!-1$ whenever $n$ is a positive integer.
+    \begin{align}
+        \intertext{Basis step:}
+        1\cdot 1! = (1 + 1)! - 1 \\
+        1 = (2)! - 1 = 2 - 1 = 1\\
+        \intertext{LHS = RHS, so $P(1)$ holds true}
+        \intertext{Inductive step:}
+        \sum_{n = 1}^k{n\cdot n!} = (k + 1)! - 1 \\ %\label{eq:1-6-k}
+        \intertext{We assume that $P(k)$ holds for all $k > 1$, and replace
+            $k$ with $k+1$}
+        \sum_{n = 1}^{k+1}{n\cdot n!} = ((k+1) + 1)! - 1 \\
+        (k+1)\cdot(k+1)! + \sum_{n = 1}^{k}{n\cdot n!}  = (k+2)! - 1 \\
+        (k+1)\cdot(k+1)! + \sum_{n = 1}^{k}{n\cdot n!}  = (k+2)(k+1)! - 1 \\
+        \intertext{We subtract $\sum_{n = 1}^k{n\cdot n!} = (k + 1)! - 1$ from the equation and get}
+        (k+1)\cdot(k+1)! +  = (k+2)(k+1)! - 1 - \big( (k+1)! - 1\big)\\
+        (k+1)\cdot(k+1)! +  = (k+2)(k+1)!  -  (k+1)! \\
+        (k+1)\cdot(k+1)! +  = k(k+1)! + 2(k+1)! - (k+1)! \\
+        (k+1)\cdot(k+1)! +  = k(k+1)! + (k+1)!  \\
+        (k+1)\cdot(k+1)! +  = (k+1)\cdot(k+1)!  \\
+        \intertext{LHS = RHS, so $P(k)$ must hold for all $k > 1$}
+    \end{align}
 
-    \subsection{Todo: Exercise 14}
+
+    \subsection{DONE?: Exercise 14}
     % https://www.chegg.com/homework-help/bus-driver-pays-tolls-using-nickels-dimes-throwing-one-coin-chapter-5.1-problem-14E-solution-9780073383095-exc
     Prove that for every positive integer $n$, $\sum_{k=1}^{n}k2^k=(n-1)2^{n+1}+2$.
+            \begin{align}
+                \intertext{$P(k)$:}
+                \sum_{n=1}^k{ n2^n} = (k-1)2^{k+1} + 2 %\label{eq:1-14-k}\
+                \intertext{Basis step:}
+                1\cdot 2^1 = (1-1)2^2{1+1} + 2 = 2\
+                \intertext{LHS = RHS, so $P(1)$ holds true}
+                \intertext{Induction step:}
+                \intertext{Replacing $n$ with $k+1$ in $\sum_{n=1}^k{ n2^n} = (k-1)2^{k+1} + 2$ gives us}
+                \sum_{n=1}^{k+1}{ n2^n} = ((k+1)-1)2^{(k+1)+1} + 2 \\
+                (k+1)2^{k+1} + \sum_{n=1}^{k}{ n2^n} = k2^{k+2} + 2 \\
+                (k+1)2^{k+1} + \sum_{n=1}^{k}{ n2^n} = 2k2^{k+1} + 2 \\
+                \intertext{We subtract $\sum_{n=1}^k{ n2^n} = (k-1)2^{k+1} + 2$ from the equation and get}
+                (k+1)2^{k+1} = 2k2^{k+1} + 2 - \big((k-1)2^{k+1} + 2\big) \\
+                (k+1)2^{k+1} = 2k2^{k+1} - (k-1)2^{k+1} \\
+                (k+1)2^{k+1} = (2k - (k-1)) 2^{k+1}\\
+                (k+1)2^{k+1} = (k+1)2^{k+1}\\
+                \intertext{LHS = RHS, so $P(k)$ must hold for all $k > 1$}
+            \end{align}
 \end{document}
