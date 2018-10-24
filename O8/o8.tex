@@ -1,0 +1,140 @@
+\documentclass[12pt]{article}
+    \usepackage{mathtools}
+    \usepackage[hidelinks]{hyperref}
+    \usepackage{color}
+    \usepackage{fancyref}
+    \usepackage{lastpage}
+    \usepackage{fancyhdr}
+    
+    \usepackage{pagecolor}
+    \pagecolor{black}
+    \color{white}
+
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[LO]{TMA4140: Homework set 8}
+    \fancyhead[RO]{Henry S. Sjøen \& Toralf Tokheim}
+    \fancyfoot[CO]{\thepage\ of \pageref{LastPage}}
+
+    \definecolor{darkred}{RGB}{200, 0, 0}
+
+  \author{Henry S. Sjøen \& Toralf Tokheim}
+  \title{
+  \textbf{TMA4140 - Homework Exercise Set 8}}
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+
+    \section{Section 5.2}
+    %  Obligatoriske: 4, 14; Anbefalte: 7, 19, 23
+    \subsection{Todo: Exercise 4}
+    Let $P(n)$ be the statement that a postage of $n$ cents can be formed using just 4-cent stamps and 7-cent stamps. The parts of this exercise outline a strong induction proof that $P(n)$ is $true$ for $n\geq 18$.
+    \textbf{a)} Show statements $P(18),P(19),P(20)$ and $P(21)$ are $true$, completing the basis step of the proof.
+    \textbf{b)} What is the inductive hypothesis of the proof?
+    \textbf{c)} What do you need to prove in the inductive step?
+    \textbf{d)} Complete the inductive step for $k \geq 21$.
+    \textbf{e)} Explain why these steps show that this statement is $true$ whenever $n\geq 18$.
+
+    \subsection{Todo: Exercise 14}
+    Suppose you begin with a pile of $n$ stones and split this pile into $n$ piles of one stone each by successively splitting a pile of stones into two smaller piles. Each time you split a pile you multiply the number of stones in each of the two smaller piles you form, so that if these piles have $r$ and $s$ stones in them, respectively, you compute $rs$. Show that no matter how you split the piles, the sum of the products computed at each step equals $n(n-1)/2$.
+
+    \section{Section 5.3}
+    %  Obligatoriske: 12, 18; Anbefalte: 13, 14, 15
+    \subsection{Todo: Exercise 12}
+    Prove that $f_1^2 +f_2^2 +\cdots+f_n^2 =f_nf_{n+1}$ when $n$ is a positive integer.
+
+    \subsection{Todo: Exercise 18}
+    Let 
+    $ A =
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0  
+    \end{bmatrix}
+    $,
+    Show that 
+    $ A^n = \begin{bmatrix}
+                    f_{n+1} & f_n\\
+                    f_n & f_{n-1}
+                    \end{bmatrix}
+    $   when $n$ is a positive integer.
+
+    \section{Section 5.4}
+    %  Obligatoriske: 3
+    \subsection{Todo: Exercise 3}
+    Trace Algorithm 3 when it finds $gcd(8,13)$. That is, show all the steps used by Algorithm 3 to find $gcd(8,13)$.
+
+    \section{Section 9.1}
+    %  7, 40a, 40c (4, 28a, 28c); Anbefalte: 4, 25, 32
+    \subsection{Todo: Exercise 7}
+    Determine whether the relation $R$ on the set of all integers is \textit{reflexive}, \textit{symmetric}, \textit{antisymmetric}, and/or \textit{transitive}, where $(x,y) \in R$ if and only if\\
+    \textbf{a)} $ x \neq y$.\\
+    \textbf{b)} $ xy \geq 1$.\\
+    \textbf{c)} $ x=y + 1$ or $ x=y-1$.\\
+    \textbf{d)} $ x \equiv y (mod 7) $.\\
+    \textbf{e)} $ x $ is a multiple of $y$.\\
+    \textbf{f)} $ x $ and $y$ are both negative or both nonnegative.\\
+    \textbf{g)} $ x=y^2 $.\\
+    \textbf{h)} $ x \geq y^2 $.
+
+    \subsection{Todo: Exercise 40}
+    Let $R_1$ and $R_2$ be the "divides" and "is a multiple of" relations on the set of all positive integers, respectively.\\
+    That is, $R_1 = \{(a,b)|a $ divides $ b\}$ and $R_2=\{(a,b)|a$ is a multiple of $b\}$. Find...
+    
+    \subsubsection{Todo: Exercise 40.a}
+    $R_1 \cup R_2$.
+    
+    \subsubsection{Todo: Exercise 40.c}
+    $R_1 - R_2$.
+
+    \section{Section 9.3}
+    %  10, 14a, 14b, 14c (6, 10a, 10b, 10c); Anbefalte: 15
+    \subsection{Todo: Exercise 10}
+    How many nonzero entries does the matrix representing the relation $R$ on $A=\{1,2,3,...,1000\}$ consisting of the first 1000 positive integers have if $R$ is...\\
+    \textbf{a)} $\{(a,b) | A \leq b \}$?\\
+    \textbf{b)} $\{(a,b) | a=b \pm 1 \}$?\\
+    \textbf{c)} $\{(a,b) | a+b = 1000 \}$?\\
+    \textbf{d)} $\{(a,b) | a+b \leq 1001 \}$?\\
+    \textbf{e)} $\{(a,b) | a \neq 0 \}$?
+    \subsection{Todo: Exercise 14}
+    Let $R_1$ and $R_2$ be the relations represented by the matrices... \\
+    $M_{R_1}=\begin{bmatrix}
+        0 & 1 & 0\\
+        1 & 1 & 1\\
+        1 & 0 & 0
+    \end{bmatrix}$ and $M_{R_2} = \begin{bmatrix}
+        0 & 1 & 0 \\
+        0 & 1 & 1 \\
+        1 & 1 & 1
+    \end{bmatrix}
+    $\\
+    Find the matrices that represent...
+    \subsubsection{Todo: Exercise 14.a}
+    $R_1 \cup R_2$
+    \begin{equation}
+        R_1 \cup R_2 = \begin{bmatrix}
+            0 & 1 & 0 \\
+            1 & 1 & 1 \\
+            1 & 1 & 1
+        \end{bmatrix}
+    \end{equation}
+
+    \subsubsection{Todo: Exercise 14.b}
+    $ R_1 \cap R_2 $.
+    \begin{equation}
+        R_1 \cap R_2=
+        \begin{bmatrix}
+            0 & 1 & 0\\
+            0 & 1 & 1\\
+            1 & 0 & 0
+        \end{bmatrix}
+    \end{equation}
+    
+    \subsubsection{Todo: Exercise 14.c}
+    $ R_2 \circ R_1$.
+    \begin{equation}
+        R_2 \circ R_1
+    \end{equation}
+\end{document}
